@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <link rel="stylesheet" href="styles/bootstrap-material-design.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <title>Top Character Forum</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-dark fixed-top">
+  </nav>
+
+  <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
+    <header class="bmd-layout-header">
+      <div class="navbar navbar-dark bg-faded fixed-top justify-content-start">
+        <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
+          <span class="sr-only">Toggle drawer</span>
+          <i class="material-icons">menu</i>
+        </button>
+        <a class="navbar-brand" href="#">Top Character Forum</a>
+      </div>
+    </header>
+    <div id="dw-s2" class="bmd-layout-drawer bg-faded">
+      <header>
+        <a class="navbar-brand">Top Character Forum</a>
+      </header>
+      <ul class="list-group">
+        <button type="button" id="menuAll" class="btn list-group-item"><i  class="material-icons">people_alt</i>All Tierlists</button>
+        <button type="button" id="menuMine" class="btn list-group-item"><i class="material-icons">person</i>My Tierlists</button>
+        <button type="button" id="menuMake" class="btn list-group-item"><i class="material-icons">person</i>Make A Tierlist</button>
+        <button type="button" id="menuSignOut" class="btn list-group-item"><i class="material-icons">login</i>Log Out</button>
+      </ul> 
+    </div>
+
+    <main class="bmd-layout-content">
+      <div id="tierPreviews" class="container page-container">
+        <div id="previewContainer">
+          
+          <div class="card">
+            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+              <img
+                src="/images/eveBackground.png"
+                class="img-fluid"
+              />
+              <a href="#!">
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              </a>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">This is what this Tier List is about. How is overflow handled?</h5>
+              <p class="card-text">
+                By: User 1
+              </p>
+            </div>
+          </div>  
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Make Tier Button -->
+<button id="tierPromptButton" type="button" class="btn btn-primary" data-toggle="modal" data-target="#buildTierPrompt" hidden>
+  Build Tier Button
+</button>
+
+<!-- Make Tier Modal -->
+<div class="modal fade" id="buildTierPrompt" tabindex="-1" role="dialog" aria-labelledby="buildPrompt"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="buildPrompt">Tier Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="titleInput">Choose A Title</label>
+            <input type="text" class="form-control" id="titleInput" placeholder="Input Your Chosen Title">
+          </div>
+          <div class="form-group">
+            <label for="categoryInput">Choose A Category(Optional)</label>
+            <input type="text" class="form-control" id="categoryInput" placeholder="Leave Empty If You Desire">
+          </div>
+          <div class="form-group">
+            <label for="publicInput">Do You Want This Tier Public?</label>
+            <select class="form-control" id="publicInput">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="descriptionInput">Description</label>
+            <textarea class="form-control" id="descriptionInput" rows="3"></textarea>
+          </div>
+          <div class="form-group bmd-form-group">
+            <!-- manually specified -->
+            <button type="button" id="submitTierPhoto" class="btn">Choose Photo</button>
+            <input id="inputFile" type="file" hidden>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button id="initiateBuildTier" type="button" class="btn btn-primary"  data-dismiss="modal">Get Started</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/popper.js"></script>
+  <script src="scripts/bootstrap-material-design.js"></script>
+  <script>$("body").bootstrapMaterialDesign();</script>
+  <script src="/__/firebase/7.18.0/firebase-app.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-analytics.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-firestore.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-auth.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-storage.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>

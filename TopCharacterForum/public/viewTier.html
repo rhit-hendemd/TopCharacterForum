@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="styles/bootstrap-material-design.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <title>Top Character Forum</title>
+</head>
+
+<body>
+  <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
+    <header class="bmd-layout-header">
+      <div class="navbar navbar-dark bg-faded fixed-top justify-content-start">
+        <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
+          <span class="sr-only">Toggle drawer</span>
+          <i class="material-icons">menu</i>
+        </button>
+        <a class="navbar-brand" href="#">Top Character Forum</a>
+
+      </div>
+
+    </header>
+    <div id="dw-s2" class="bmd-layout-drawer bg-faded">
+      <header>
+        <a class="navbar-brand">View A Tier List</a>
+      </header>
+      <ul class="list-group">
+        <button type="button" id="menuAll" class="btn list-group-item"><i class="material-icons">people_alt</i>All
+          Tierlists</button>
+        <button type="button" id="menuMine" class="btn list-group-item"><i class="material-icons">person</i>My
+          Tierlists</button>
+        <button type="button" id="menuMake" class="btn list-group-item"><i class="material-icons">person</i>Make A
+          Tierlist</button>
+        <button type="button" id="menuSignOut" class="btn list-group-item"><i class="material-icons">login</i>Log
+          Out</button>
+      </ul>
+    </div>
+
+    <main class="bmd-layout-content">
+      <div class="container page-container">
+        <div id="viewTierPage">
+          <div id="viewContain">
+            <h2 id="tierTitle">The Tier Title</h2>
+            <div class="dropdown pull-xs-right">
+              <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="lr1" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="material-icons">more_vert</i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="lr1">
+                <button type="button" class="btn dropdown-item" type="button" data-toggle="modal"
+                  data-target="#descriptionModal">
+                  <i class="material-icons">description</i>&nbsp;&nbsp;&nbsp;Description
+                </button>
+                <button type="button" id="editTier" class="btn dropdown-item" type="button" data-toggle="modal"
+                  data-target="#editQuoteDialog">
+                  <i class="material-icons">edit</i>&nbsp;&nbsp;&nbsp;Edit
+                </button>
+                <!-- <button type="button" id="tierComment" class="btn dropdown-item" type="button" data-toggle="modal"
+                  data-target="#deleteQuoteDialog" hidden>
+                  <i class="material-icons">rate_review</i>&nbsp;&nbsp;&nbsp;Comment
+                </button> -->
+                <button id="deleteTier" type="button" class="btn dropdown-item" type="button" data-toggle="modal"
+                  data-target="#deleteTierDialogue">
+                  <i class="material-icons">delete</i>&nbsp;&nbsp;&nbsp;Delete
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="viewTierContainer">
+          
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+    <!-- Make Tier Button -->
+<button id="tierPromptButton" type="button" class="btn btn-primary" data-toggle="modal" data-target="#buildTierPrompt" hidden>
+  Build Tier Button
+</button>
+
+<!-- Make Tier Modal -->
+<div class="modal fade" id="buildTierPrompt" tabindex="-1" role="dialog" aria-labelledby="buildPrompt"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="buildPrompt">Tier Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="titleInput">Choose A Title</label>
+            <input type="text" class="form-control" id="titleInput" placeholder="Input Your Chosen Title">
+          </div>
+          <div class="form-group">
+            <label for="categoryInput">Choose A Category(Optional)</label>
+            <input type="text" class="form-control" id="categoryInput" placeholder="Leave Empty If You Desire">
+          </div>
+          <div class="form-group">
+            <label for="publicInput">Do You Want This Tier Public?</label>
+            <select class="form-control" id="publicInput">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="descriptionInput">Description</label>
+            <textarea class="form-control" id="descriptionInput" rows="3"></textarea>
+          </div>
+          <div class="form-group bmd-form-group">
+            <!-- manually specified -->
+            <button type="button" id="submitTierPhoto" class="btn">Choose Photo</button>
+            <input id="inputFile" type="file" hidden>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button id="initiateBuildTier" type="button" class="btn btn-primary"  data-dismiss="modal">Get Started</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Description Modal -->
+  <div class="modal fade" id="descriptionModal" tabindex="-1" role="dialog" aria-labelledby="tierDescription"
+    aria-hidden="true">
+
+    <!-- Change class .modal-sm to change the size of the modal -->
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title w-100" id="tierDescription">The Tier's Description</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="descriptionMessage" class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Character Delete/info Buton -->
+  <button id="characterInfoButton" type="button" class="btn btn-primary" data-toggle="modal"
+    data-target="#centralModalSm" hidden>
+    Launch demo modal
+  </button>
+
+  <!-- Character Delete/info Modal -->
+  <div class="modal fade" id="centralModalSm" tabindex="-1" role="dialog" aria-labelledby="characterWhyModal"
+    aria-hidden="true">
+
+    <!-- Change class .modal-sm to change the size of the modal -->
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title w-100" id="characterWhyModal" data-name="" data-rank="">Modal title</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="whyMessage" class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+          <button id="deleteCharacter" type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Tier Modal -->
+  <div class="modal fade" id="deleteTierDialogue" tabindex="-1" role="dialog" aria-labelledby="deleteTierDialogue"
+    aria-hidden="true">
+
+    <!-- Change class .modal-sm to change the size of the modal -->
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title w-100">Are You Sure You Want To Delete This Tier List?</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
+          <button id="confirmDeleteTier" type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Character Add Button -->>
+  <button id="fab" type="button" class="btn btn-success bmd-btn-fab" data-toggle="modal" data-target="#addCharacter"
+    hidden>
+    <i class="material-icons">add</i>
+  </button>
+
+  <!-- Character Add Modal -->
+  <div class="modal fade" id="addCharacter" tabindex="-1" role="dialog" aria-labelledby="Add quote dialog"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add A Character to this Tier Level</h5>
+        </div>
+        <div class="modal-body">
+
+          <div class="form-group bmd-form-group">
+            <label for="inputName">Character Name</label>
+            <input type="text" class="form-control" id="inputName">
+          </div>
+          <div class="form-group bmd-form-group">
+            <label for="inputWhy">Why This Rank?</label>
+            <input type="text" class="form-control" id="inputWhy">
+          </div>
+          <div class="form-group bmd-form-group">
+            <!-- manually specified -->
+            <button type="button" id="submitPhoto" class="btn">Choose Photo</button>
+            <input id="inputFile" type="file" hidden>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+          <button id="submitAddCharacter" type="button" class="btn btn-primary" data-dismiss="modal">ADD</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/popper.js"></script>
+  <script src="scripts/bootstrap-material-design.js"></script>
+  <script>$("body").bootstrapMaterialDesign();</script>
+  <script src="/__/firebase/7.18.0/firebase-app.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-analytics.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-firestore.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-auth.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-storage.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+
+</html>

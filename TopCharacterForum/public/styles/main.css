@@ -1,0 +1,238 @@
+body {
+    background: #DDDDDD;
+}
+
+.navbar {
+    background-color: #800000;
+    color: white;
+}
+
+.page-container {
+    margin-top: 75px;
+}
+
+.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* #loginPage {
+    width: 100vw;
+    height: 100vh;
+    background: url("../images/touka.jpg");
+    background-size: 100% 100%;
+} */
+
+#viewTierPage {
+    display: block;
+    margin: auto;
+    background-color: #800000;
+    border-radius: 7px;
+    padding: 5px;
+
+}
+
+#viewContain {
+    display: flex;
+    justify-content: space-between;
+}
+
+#viewContain > h2 {
+    color: white;
+    font-weight: bold;
+}
+
+#fab {
+    background: #800000;
+    bottom: 10px;
+    position: fixed;
+    right: 10px;
+    color: white;
+    z-index: 999;
+}
+
+#fab:active {
+    transform: translateY(2px);
+    opacity: 0.8;
+}
+
+.card {
+    margin: 10px 0;
+}
+
+.dropdown-menu-right {
+    left: -128px;
+    top: 60px;
+}
+
+#roseLogo {
+    max-width: 350px;
+    display: block;
+    margin: 20px auto;
+}
+
+#roseFireButton {
+    display: block;
+    margin: 60px auto;
+    color: white;
+    background: #800000;
+    font-size: 1.1em;
+    padding: 10px 30px;
+    border-radius: 5px;
+}
+
+.bmd-layout-content {
+    height: 100vh;
+}
+
+.bmd-layout-drawer>header{
+    background-color: #800000;
+    color: white;
+}
+
+.bmd-layout-drawer>ul {
+    background-color: #ddd;
+}
+
+.list-group {
+    background-color: rgb(203, 203, 203);
+}
+
+.list-group-item :first-child {
+    margin-right: 1.25rem;
+}
+
+.bmd-layout-header>.navbar>a {
+    margin-left: 16px;
+}
+
+#menuEdit, #menuDelete {
+    display: none;
+}
+
+.list-group-item {
+    cursor: pointer;
+}
+
+ #viewTierContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.rankChar {
+    width: 75px;
+    height: 75px;
+    margin: 0.25rem 0.25rem;
+    border-radius: 15%;
+}
+
+#rank {
+    margin: 5px 5px;
+    position: relative;
+    display: flex;
+    flex-flow: row;
+    background-color: #6a6a6a;
+    min-height: 58px;
+    width: 98%;
+}
+
+#rankLabel {
+    min-width: 75px;
+    /* margin-top: 12%; */
+    background-color: rgb(231, 231, 231);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#characters {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: space-between;
+    align-items: baseline;
+}
+
+.modal-content {
+    background-color: #ddd;
+}
+
+#submitPhoto {
+    background-color: #393939;
+    color: white
+}
+
+/*Start tierPreview CSS*/
+#previewContainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    padding: 5px 10px;
+}
+
+.card {
+    margin: 15px 5px;
+    background-color: #ddd;
+    max-width: 225px;
+}
+
+.img-fluid {
+    min-height: 150px;
+}
+
+.addButton, .addRank {
+    max-width: 75px;
+}
+
+.card > .card-body {
+    flex: 0 1 auto;
+    max-width: 100%;
+    padding: 1rem;
+    margin: auto;
+    text-align: center;
+}
+
+.card > .card-body > .card-title {
+    display: block;
+    font-size: 1rem;
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+
+/* .page-container {
+    display: flex;
+    justify-content: center;
+} */
+
+#fab {
+    visibility: hidden;
+}
+
+#lr1 {
+    color: aliceblue;
+}
+
+
+
+@media (min-width: 300px) {
+    #viewTierPage {
+    max-width: 300px;
+    }
+    .rankChar, .addButton, .addRank {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 796px) {
+    #viewTierPage {
+        width: 600px;
+        }
+        .rankChar, .addButton, .addRank {
+            width: 50px;
+            height: 50px;
+        }
+}
+ 
